@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>As, pirmadienis ir PHP</title>
+        <title><<?php print 'As, ' . date("l") . " ir PHP" ?></title>
     </head>
     <body>
         <h1>Paulius - HTML ir PHP asas jau nuo <?php print date('Y') ?> metu</h1>
