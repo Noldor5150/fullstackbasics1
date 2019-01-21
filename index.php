@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <title><title> PHP lydes ir <?php print date("Y", strtotime ('+'.rand(0,10).'year'));?>  </title></title>
+        <title> PHP lydes ir <?php print date("Y", strtotime ('+'.rand(0,10).'year'));?> </title>
     </head>
     <body>
         
