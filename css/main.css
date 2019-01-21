@@ -1,14 +1,16 @@
-.background-0 {
-    background-image: url("../images/dice0.png");
+.body {
     background-size: cover;
     background-repeat: no-repeat;
     text-align: center;
+    width: 400px;
+    height: 400px;
+}
+
+.background-0 {
+    background-image: url("../images/dice0.png");
 }
 .background-1 {
     background-image: url("../images/dice1.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    text-align: center;
 }
 .background-2{
     background-image: url("../images/dice2.png");
@@ -16,19 +18,10 @@
 }
 .background-3 {
     background-image: url("../images/dice3.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    text-align: center;
 }
 .background-4 {
     background-image: url("../images/dice4.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    text-align: center;
 }
 .background-5 {
     background-image: url("../images/dice5.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    text-align: center;
 }
