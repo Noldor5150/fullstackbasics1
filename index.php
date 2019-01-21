@@ -1,8 +1,20 @@
+<?php
+$size = date('s') * 10;
+?>
+
 <html>
     <head>
-        <title>  </title>
+    <title>Bombike</title> 
         <link rel="stylesheet" href="css/main.css">
+         <style>
+            .bomba {
+                height: <?php print $size; ?>px;
+                width: <?php print $size; ?>px; 
+            }
+        </style>
     </head>
-    <body class="background-<?php print rand(0,5);?>">
+    <body>
+        <div><img class="bomba" src="images/bomb.png"></div>
+        <div>Sprogsim: <?php print date('s'); ?></div>
     </body>
 </html>

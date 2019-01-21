@@ -1,9 +1,7 @@
-.body {
-    background-size: cover;
-    background-repeat: no-repeat;
-    text-align: center;
-    width: 400px;
-    height: 400px;
+body {
+  background-repeat: no-repeat;
+  background-size: 300px 300px;
+  display:  inline;
 }
 
 .background-0 {
