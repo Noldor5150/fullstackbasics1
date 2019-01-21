@@ -2,10 +2,16 @@
 
 <html>
     <head>
-        <<title>PHP lydes ir <?php print date("Y-m-d", strtotime("+1 day")); ?></title>
+        <title>Komentarai</title>
     </head>
     <body>
-        <h1>Paulius - PHP su manim buvo <?php print date('Y-m-d H:i:s', strtotime('-1 hour')); ?></h1>
-        <p><?php print date("Y", strtotime("+1 year")); ?> ne uz kalnu</p>
+        <div><!--nu va blogas oi blogas tas divas-->
+            <h1>As pradedu</h1>
+            <h2>O as papildau</h2>
+        </div>
+        <!--  <div>
+              <p>As esu ta pana, kuri kalba ir kalba ir kalba...</p>
+          </div>
+        //-->
     </body>
 </html>
