@@ -5,7 +5,8 @@
         <title>Komentarai</title>
     </head>
     <body>
-        <div><!--nu va blogas oi blogas tas divas-->
+        <!-- nu va blogas oi blogas tas divas -->
+        <div>
             <h1>As pradedu</h1>
             <h2>O as papildau</h2>
         </div>
