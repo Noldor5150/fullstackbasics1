@@ -1,21 +1,17 @@
 <?php
-$tekstas = "alus";
-$skaicius = 3 ;
-$nesveikas_skaicius = 3.5;
-$bool = 1;
-$niekas = null;
+$link = 'https://media.giphy.com/media/Gxv6oG6jpGvpm/giphy.gif';
 ?>
 
 <html>
     <head>
-    <title>PHP kintamieji</title> 
-        <link rel="stylesheet" href="css/main.css">
+        <title>Fight club</title>
     </head>
     <body>
-        <div> <?php print $skaicius ?></div>
-        <div> <?php print $nesveikas_skaicius ?></div>
-        <div> <?php print $tekstas ?></div>
-        <div> <?php print $bool ?></div>
-        <div> <?php print $niekas ?></div>
+        <p>
+            <img src="<?php print $link ?>">
+            <img src="<?php print $link ?>">
+            <img src="<?php print $link ?>">
+            <img src="<?php print $link ?>">
+        </p>
     </body>
 </html>
