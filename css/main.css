@@ -1,25 +1,19 @@
-body {
-  background-repeat: no-repeat;
-  background-size: 300px 300px;
-  display:  inline;
+div {
+    background-repeat: no-repeat;
+    width: 300px;
+    height: 300px;
+    background-size: contain;
 }
 
-.background-0 {
-    background-image: url("../images/dice0.png");
+.sunny {
+    background-image: url("../images/bomb.png");
 }
-.background-1 {
-    background-image: url("../images/dice1.png");
-}
-.background-2{
-    background-image: url("../images/dice2.png");
-
-}
-.background-3 {
-    background-image: url("../images/dice3.png");
-}
-.background-4 {
+.sun_rain {
     background-image: url("../images/dice4.png");
 }
-.background-5 {
+.rain{
+    background-image: url("../images/dice2.png");
+}
+.cloudy{
     background-image: url("../images/dice5.png");
 }

@@ -1,17 +1,30 @@
 <?php
-Date_default_timezone_set('Europe/Vilnius');
-$siusklines_turis = 40;
-$dienos_siuksliu_turis = rand(0, 10);
-$max_kaupo_turis = rand(1, 3);
-$dienos = floor(($siusklines_turis + $max_kaupo_turis) / $dienos_siuksliu_turis);
-$data = date('d', strtotime("+$dienos days"));
+$sunny = rand(0, 1);
+$rain = rand(0, 1);
+$css_class = null;
+$oras = null;
+
+if ($sunny) {
+    if ($rain) {
+        $oras = "Lietus su saule"; $css_class = "sun_rain";
+    } else {
+        $oras = "Sauleta"; $css_class = "sunny";
+    }
+} else {
+    if ($rain) {
+        $oras = "lietus"; $css_class = "rain";
+    } else {
+        $oras = "debesuotas"; $css_class = "cloudy";
+    }
+}
 ?>
-<html>
+<html> 
     <head>
-        <title>3 taskas</title>
+        <link rel="stylesheet" href="css/main.css">
+        <title>Oru lentele</title>
     </head>
     <body>
-        <h1>siukles</h1>
-        <h2> <?php print $data; ?> pirksiu geles</h2>
-    </body>
-</html>
+        <div class="<?php print $css_class;?>"> 
+            <p><?php print $oras;?> </p>
+        </div>
+    </div>
