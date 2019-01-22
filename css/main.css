@@ -6,14 +6,14 @@ div {
 }
 
 .sunny {
-    background-image: url("../images/bomb.png");
+    background-image: url("../images/sunny.jpg");
 }
 .sun_rain {
-    background-image: url("../images/dice4.png");
+    background-image: url("../images/tenor.gif");
 }
 .rain{
-    background-image: url("../images/dice2.png");
+    background-image: url("../images/rain.gif");
 }
 .cloudy{
-    background-image: url("../images/dice5.png");
+    background-image: url("../images/cloudy.jpg");
 }
