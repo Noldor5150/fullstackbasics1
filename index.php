@@ -1,20 +1,21 @@
 <?php
-$size = date('s') * 10;
+$tekstas = "alus";
+$skaicius = 3 ;
+$nesveikas_skaicius = 3.5;
+$bool = 1;
+$niekas = null;
 ?>
 
 <html>
     <head>
-    <title>Bombike</title> 
+    <title>PHP kintamieji</title> 
         <link rel="stylesheet" href="css/main.css">
-         <style>
-            .bomba {
-                height: <?php print $size; ?>px;
-                width: <?php print $size; ?>px; 
-            }
-        </style>
     </head>
     <body>
-        <div><img class="bomba" src="images/bomb.png"></div>
-        <div>Sprogsim: <?php print date('s'); ?></div>
+        <div> <?php print $skaicius ?></div>
+        <div> <?php print $nesveikas_skaicius ?></div>
+        <div> <?php print $tekstas ?></div>
+        <div> <?php print $bool ?></div>
+        <div> <?php print $niekas ?></div>
     </body>
 </html>
