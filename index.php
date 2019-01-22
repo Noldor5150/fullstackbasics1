@@ -6,15 +6,19 @@ $oras = null;
 
 if ($sunny) {
     if ($rain) {
-        $oras = "Lietus su saule"; $css_class = "sun_rain";
+        $oras = "Lietus su saule";
+        $css_class = "sun_rain";
     } else {
-        $oras = "Sauleta"; $css_class = "sunny";
+        $oras = "Sauleta";
+        $css_class = "sunny";
     }
 } else {
     if ($rain) {
-        $oras = "lietus"; $css_class = "rain";
+        $oras = "lietus";
+        $css_class = "rain";
     } else {
-        $oras = "debesuotas"; $css_class = "cloudy";
+        $oras = "debesuotas";
+        $css_class = "cloudy";
     }
 }
 ?>
@@ -24,7 +28,8 @@ if ($sunny) {
         <title>Oru lentele</title>
     </head>
     <body>
-        <div class="<?php print $css_class;?>"> 
-            <p><?php print $oras;?> </p>
+        <div class="<?php print $css_class; ?>"> 
+            <p><?php print $oras; ?> </p>
         </div>
-    </div>
+    </body>
+</html>
