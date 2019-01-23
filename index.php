@@ -1,16 +1,16 @@
 
 <?php
-$kates = rand(1, 3);
-$sunys = rand(1, 3);
+$months = 12;
+$kisene = 1000;
+$alga = 700;
+$menesis = 0;
 
-$katasunis = 0;
-for ($x = 1; $x <= $kates; $x++) {
-    for ($i = 1; $i <= $sunys; $i++) {
-        $success = rand(0, 1);
-        if ($success) {
-            $katasunis += 1;
-            break;
-        }
+for ($x = 1; $x <= $months; $x++) {
+    $islaidos = rand(0, 2000);
+    $likutis = $kisene + $alga - $islaidos;
+    $menesis++;
+    if ($likutis <= 0) {
+        break;
     }
 }
 ?>
@@ -19,7 +19,6 @@ for ($x = 1; $x <= $kates; $x++) {
         <title>For su katasuniais</title> 
     </head>
     <body>
-        <p>Evente dalyvavo <?php print $kates; ?> ir <?php print $sunys; ?> sunys.</p>
-        <p>Katasuniu iseiga: <?php print $katasunis; ?></p>          
+        <p>Baik gerti, si menesi <?php print $menesis; ?> baigsis babkes .</p>
     </body>
 </html>
