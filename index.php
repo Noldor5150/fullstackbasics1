@@ -1,24 +1,23 @@
-
 <?php
 $months = 12;
 $kisene = 1000;
 $alga = 700;
-$menesis = 0;
-
-for ($x = 1; $x <= $months; $x++) {
-    $islaidos = rand(0, 2000);
-    $likutis = $kisene + $alga - $islaidos;
-    $menesis++;
-    if ($likutis <= 0) {
+for ($i = 1; $i <= $months; $i++) {
+    $islaidos = rand(400, 1200);
+    $kisene += $alga - $islaidos;
+    if ($kisene <= 0) {
+        $message = "Bloga prognozė: $i mėnesį gali baigtis piginai! Atsargiai!";
         break;
+    } else {
+        $message = "Likutis po $i mėn. yra $kisene Eur.";
     }
 }
 ?>
 <html>
     <head>
-        <title>For su katasuniais</title> 
+        <title>Kišenė</title>
     </head>
     <body>
-        <p>Baik gerti, si menesi <?php print $menesis; ?> baigsis babkes .</p>
+        <h2><?php print $message; ?></h2>
     </body>
 </html>
