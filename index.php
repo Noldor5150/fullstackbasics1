@@ -1,35 +1,19 @@
 <?php
-$sunny = rand(0, 1);
-$rain = rand(0, 1);
-$css_class = null;
-$oras = null;
-
-if ($sunny) {
-    if ($rain) {
-        $oras = "Lietus su saule";
-        $css_class = "sun_rain";
-    } else {
-        $oras = "Sauleta";
-        $css_class = "sunny";
-    }
-} else {
-    if ($rain) {
-        $oras = "lietus";
-        $css_class = "rain";
-    } else {
-        $oras = "debesuotas";
-        $css_class = "cloudy";
-    }
+$t = rand(1, 10);
+$text = 'N';
+for ($i = 0; $i < $t; $i++){
+    $text.= 'x';
 }
 ?>
 <html> 
     <head>
         <link rel="stylesheet" href="css/main.css">
-        <title>Oru lentele</title>
+        <title>Satan cycles1</title>
     </head>
     <body>
-        <div class="<?php print $css_class; ?>"> 
-            <p><?php print $oras; ?> </p>
+        <div> 
+            <h1><?php print $t; ?> </h1>
+            <h2><?php print $text; ?> </h2>
         </div>
     </body>
 </html>
