@@ -1,22 +1,25 @@
 
 <?php
-$po_alaus = rand(1, 5);
-$dar_alaus = 0;
-$kablys = 1;
-for ($i = 0; $i <= $po_alaus; $i++) {
-    $dar_alaus += floor($po_alaus / 2) + $kablys;
+$kates = rand(1, 3);
+$sunys = rand(1, 3);
+
+$katasunis = 0;
+for ($x = 1; $x <= $kates; $x++) {
+    for ($i = 1; $i <= $sunys; $i++) {
+        $success = rand(0, 1);
+        if ($success) {
+            $katasunis += 1;
+            break;
+        }
+    }
 }
 ?>
-<html> 
+<html>
     <head>
-        <!--<link rel="stylesheet" href="css/main.css"> -->
-        <title>Satan cycles1</title>
+        <title>For su katasuniais</title> 
     </head>
     <body>
-        <div> 
-            <h1>
-                Po <?php print $po_alaus; ?> alaus, tikėtina dar imsiu <?php print $dar_alaus; ?> alaus.
-            </h1>
-        </div>
+        <p>Evente dalyvavo <?php print $kates; ?> ir <?php print $sunys; ?> sunys.</p>
+        <p>Katasuniu iseiga: <?php print $katasunis; ?></p>          
     </body>
 </html>
