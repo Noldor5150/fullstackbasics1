@@ -1,43 +1,43 @@
 <?php
 
-$people = [
+$fridge = [
     'lentyna_top' => [
         [
-            'food' => 'kiausiniai',
+            'produktas' => 'kiausiniai',
             'kiekis' => '3'
         ],
         [
-            'food' => 'grietine',
+            'produktas' => 'grietine',
             'kiekis' => '1'
         ],
         [
-            'food' => 'jogurtas',
+            'produktas' => 'jogurtas',
             'kiekis' => '2'
         ],
         [
-            'food' => 'zuvis',
+            'produktas'=> 'zuvis',
             'kiekis' => '0'
         ],
     ],
     'lentyna_bottom' => [
         [
-            'food' => 'pienas',
+            'produktas' => 'pienas',
             'kiekis' => '1'
         ],
         [
-            'food' => 'kefyras',
+            'produktas' => 'kefyras',
             'kiekis' => '0'
         ],
         [
-            'food' => 'degtine',
+            'produktas' => 'degtine',
             'kiekis' => '2'
         ],
         [
-            'food' => 'kecupas',
+            'produktas' => 'kecupas',
             'kiekis' => '2'
         ],
     ]
 ];
 
-var_dump($people);
+var_dump($fridge);
 ?>
