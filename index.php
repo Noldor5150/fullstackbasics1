@@ -20,17 +20,18 @@ for ($i = 1; $i <= $days; $i++) {
 }
 $viso_islaidos = $cizu_kiekis * $ciza;
 $mon_thu_kaina = $cizu_kiekis_pirm_ketv * $ciza;
+$rukymo_laikas_min = 0;
+
+for ($y = 1; $y <= $cizu_kiekis; $y++) {
+    $rukymo_laikas_min = $cizu_kiekis * 5;
+}
+$rukymo_laikas_h = $rukymo_laikas_min / 60;
 ?>
 <html>
     <head>
         <title>Fucking rookymas</title>
-        <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        <h2>Surookiau cyzu per metus <?php print $cizu_kiekis; ?> isleidau <?php print $viso_islaidos; ?> jevru</h2>
-        <h2>Nerukydamas pirmadieniais - ketvirtadieniais sutaupyciau <?php print $mon_thu_kaina; ?> jevru</h2>
-        <?php for ($x = 1; $x <= $cizu_kiekis; $x++): ?>
-            <div></div>
-        <?php endfor; ?>
+        <h2>Prarookau valandu per metus <?php print $rukymo_laikas_h; ?> isleidau <?php print $viso_islaidos; ?> jevru</h2>
     </body>
 </html>
