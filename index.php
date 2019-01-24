@@ -26,6 +26,8 @@ for ($y = 1; $y <= $cizu_kiekis; $y++) {
     $rukymo_laikas_min = $cizu_kiekis * 5;
 }
 $rukymo_laikas_h = $rukymo_laikas_min / 60;
+$paciokai = $cizu_kiekis / 20;
+$likutis = $cizu_kiekis % 20;
 ?>
 <html>
     <head>
@@ -33,8 +35,17 @@ $rukymo_laikas_h = $rukymo_laikas_min / 60;
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        <?php for ($x = 1; $x <= $cizu_kiekis; $x++): ?>
-            <div></div>
+        <?php for ($j = 1; $j <= $paciokai; $j++): ?>
+            <div class="paciokas">
+                <?php for ($i = 1; $i <= 20; $i++): ?>
+                    <div class="ciza"></div>
+                <?php endfor; ?>
+            </div>
         <?php endfor; ?>
+        <div class="paciokas">
+            <?php for ($i = 1; $i <= $likutis; $i++): ?>
+                <div class="ciza"></div>
+            <?php endfor; ?>
+</div>
     </body>
 </html>
