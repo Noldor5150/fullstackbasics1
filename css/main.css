@@ -11,5 +11,6 @@ div {
     background-size: contain;
     background-image: url("../images/cig.jpg");
     margin: auto;
+    border: 1px solid red;
 }
 
