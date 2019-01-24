@@ -30,8 +30,11 @@ $rukymo_laikas_h = $rukymo_laikas_min / 60;
 <html>
     <head>
         <title>Fucking rookymas</title>
+        <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        <h2>Prarookau valandu per metus <?php print $rukymo_laikas_h; ?> isleidau <?php print $viso_islaidos; ?> jevru</h2>
+        <?php for ($x = 1; $x <= $cizu_kiekis; $x++): ?>
+            <div></div>
+        <?php endfor; ?>
     </body>
 </html>
