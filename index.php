@@ -29,5 +29,6 @@ $people = [
         ]
     ]
 ];
-var_dump($people);
+
+print $people[];
 ?>
