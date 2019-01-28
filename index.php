@@ -1,43 +1,18 @@
 <?php
-
-$fridge = [
-    'lentyna_top' => [
-        [
-            'produktas' => 'kiausiniai',
-            'kiekis' => '3'
-        ],
-        [
-            'produktas' => 'grietine',
-            'kiekis' => '1'
-        ],
-        [
-            'produktas' => 'jogurtas',
-            'kiekis' => '2'
-        ],
-        [
-            'produktas'=> 'zuvis',
-            'kiekis' => '0'
-        ],
-    ],
-    'lentyna_bottom' => [
-        [
-            'produktas' => 'pienas',
-            'kiekis' => '1'
-        ],
-        [
-            'produktas' => 'kefyras',
-            'kiekis' => '0'
-        ],
-        [
-            'produktas' => 'degtine',
-            'kiekis' => '2'
-        ],
-        [
-            'produktas' => 'kecupas',
-            'kiekis' => '2'
-        ],
-    ]
-];
-
-var_dump($fridge);
+$mano_atmintis = ['penktadienis', 'paskaita', 'baras', 'alus', 'viskis', 'gintonikas', 'pirmadienis'];
 ?>
+<html>
+    <head>
+        <title>for each</title>
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <h1>WTF?</h1>
+        <h2>MAno atmintis</h2>
+        <ul>
+            <?php foreach ($mano_atmintis as $value): ?>
+                <li><?php print $value; ?></li>
+            <?php endforeach; ?>
+        </ul>    
+    </body>
+</html> 
