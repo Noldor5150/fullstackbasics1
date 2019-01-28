@@ -1,8 +1,13 @@
 <?php
 $mano_atmintis = ['penktadienis', 'paskaita', 'baras', 'alus', 'viskis', 'gintonikas', 'pirmadienis'];
 $draugo_atmintis = ['penktadienis', 'darbas', 'baras', 'alus', 'viskis', 'gintonikas', 'antradienis'];
+
+$bendra_atmintis = array_intersect($mano_atmintis, $draugo_atmintis);
 $atmintis = count($mano_atmintis);
 $random_flash = rand(0, $atmintis - 1);
+if (!in_array($random_flash, $bendra_atmintis)) {
+    $bendra_atmintis[] = $mano_atmintis[$random_flash];
+}
 ?>
 <html>
     <head>
@@ -23,6 +28,12 @@ $random_flash = rand(0, $atmintis - 1);
             <?php foreach ($mano_atmintis as $value): ?>
                 <li><?php print $value; ?></li>
             <?php endforeach; ?>
-        </ul>    
+        </ul> 
+        <h2>Bendra atmintis</h2>
+        <ul>
+            <?php foreach ($bendra_atmintis as $value): ?>
+                <li><?php print $value; ?></li>
+            <?php endforeach; ?>
+        </ul>  
     </body>
 </html> 
