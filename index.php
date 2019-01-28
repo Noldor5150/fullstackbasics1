@@ -1,37 +1,41 @@
 <?php
 $dishes = [
     [
-        'name' => 'Nut salad',
-        'price' => 3.44,
+        'name' => 'Eggplant salad',
+        'price' => 7.77,
+        'style' => 'eggplant',
         'ingridients' => [
             'Nuts',
             'Joghurt'
         ]
     ],
     [
-        'name' => 'Bulldish',
-        'price' => 4.77,
+        'name' => 'Bamboodish',
+        'price' => 6.66,
+        'style' => 'bamboo',
         'ingridients' => [
             'Rice',
-            'Soya'
+            'More meat'
         ]
     ]
 ];
 ?>
 <html>
     <head>
-        <title>Dishes uzduotis</title>            
+        <title>Dishes uzduotis</title>
+        <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        <div>
-            <?php foreach ($dishes as $dish): ?>
-                <h2><?php print $dish['name'] . ': ' . $dish['price']; ?></h2>
+        <?php foreach ($dishes as $dish): ?>
+            <div class="<?php print $dish['style']; ?>">
+                <h2><?php print $dish['name']; ?></h2>
                 <ul>
-                    <?php foreach ($dish['ingridients'] as $part) : ?>
-                        <li><?php print $part ; ?></li>
+                    <?php foreach ($dish['ingridients'] as $part): ?>
+                        <li><?php print $part; ?></li>
                     <?php endforeach; ?>
                 </ul>
-            <?php endforeach; ?>
-        </div>
+                <p class="dish-info">Kaina: <?php print $dish['price']; ?> Eur</p>
+            </div>
+        <?php endforeach; ?>
     </body>
 </html>
