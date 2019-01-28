@@ -5,7 +5,7 @@ $draugo_atmintis = ['penktadienis', 'darbas', 'baras', 'alus', 'viskis', 'ginton
 $bendra_atmintis = array_intersect($mano_atmintis, $draugo_atmintis);
 $atmintis = count($mano_atmintis);
 $random_flash = rand(0, $atmintis - 1);
-if (!in_array($random_flash, $bendra_atmintis)) {
+if (!in_array($mano_atmintis[$random_flash], $bendra_atmintis)) {
     $bendra_atmintis[] = $mano_atmintis[$random_flash];
 }
 ?>
