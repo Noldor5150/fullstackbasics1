@@ -1,48 +1,31 @@
 <?php
-$daiktai  = [
-    '0' => [
-        'daigtas' => 'lupdazys',
-        'dyds' => rand(1, 10),
-         'dark'  => rand(0, 1),
-         ],
-     '1' => [
-        'daigtas' => 'tamponai',
-        'dyds' => rand(1, 10),
-         'dark'  => rand(0, 1),
-        ],
-     '2' => [
-        'daigtas' => 'raktas',
-        'dyds' => rand(1, 10),
-         'dark'  => rand(0, 1),
-        ],
-     '3' => [
-        'daigtas' => 'veidrodis',
-        'dyds' => rand(1, 10),
-         'dark'  => rand(0, 1),
-        ],
-     '4' => [
-        'daigtas' => 'prakladkes',
-        'dyds' => rand(1, 10),
-         'dark'  => rand(0, 1),
-        ],
-     '5' => [
-        'daigtas' => 'telefas',
-        'dyds' => rand(1, 10),
-         'dark'  => rand(0, 1),
-        ],
-    '6' => [
-        'daigtas' => 'debilo_fotke',
-        'dyds' => rand(1, 10),
-         'dark'  => rand(0, 1),
-        ],
-    ];
-
-$rankinuko_dydis = rand(0, 6);
 $rankinukas = [];
-
-for ($x = 0; $x <= $rankinuko_dydis; $x++) {
-   
-$rankinukas[] = $daiktai[$x];
-}
-var_dump($rankinukas);
+$daiktai = ['bambukas', 'pinigine', 'kremux', 'pirstines', 'baklazanas', 'dildo', 'tamponai', 'debilo_foto'];
+for ($i = 0; $i < rand(1, 10); $i++) {
+    $name = $daiktai[rand(0, count($daiktai) - 1)];
+    $size = rand(1, 10);
+    $is_dark = rand(0, 1);
+    
+    if ($is_dark) {
+        $spalva = 'sviesus';
+    } else {
+        $spalva = 'tamsus';
+    };
+    $rankinukas[] = [
+            'name' => $name,
+            'size' => $size,
+            'is_dark' => $is_dark,
+            'summary' => "$name užima $size cm3. Daiktas yra $spalva"
+        ];
+};
 ?>
+<html>
+    <head>
+        <title>Rankinukas</title>
+    </head>
+    <body>
+        <?php foreach ($rankinukas as $value): ?>
+            <p><?php print $value['summary']; ?></p>
+        <?php endforeach; ?>
+    </body>
+</html>
