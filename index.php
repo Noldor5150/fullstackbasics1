@@ -1,31 +1,32 @@
 <?php
 $rankinukas = [];
-$daiktai = ['bambukas', 'pinigine', 'kremux', 'pirstines', 'baklazanas', 'dildo', 'tamponai', 'debilo_foto'];
-for ($i = 0; $i < rand(1, 10); $i++) {
-    $name = $daiktai[rand(0, count($daiktai) - 1)];
-    $size = rand(1, 10);
+$name = ['bambukas', 'pinigine', 'kremux', 'pirstines', 'baklazanas', 'dildo', 'tamponai', 'debilo_foto'];
+$rankinuko_dydis = rand(1, 20);
+for ($i = 0; $i < $rankinuko_dydis; $i++) {
+    $name_indexas = rand(0, count($name) - 1);
+    $random_vardas = $name[$name_indexas];
+    $size = rand(10, 50);
     $is_dark = rand(0, 1);
-    
     if ($is_dark) {
-        $spalva = 'sviesus';
+        $spalva = 'Sviesus';
     } else {
-        $spalva = 'tamsus';
-    };
+        $spalva = 'Tamsus';
+    }
     $rankinukas[] = [
-            'name' => $name,
-            'size' => $size,
-            'is_dark' => $is_dark,
-            'summary' => "$name užima $size cm3. Daiktas yra $spalva"
-        ];
-};
+        'name' => $random_vardas,
+        'spalva' => $spalva,
+        'size' => $size,
+        'info' => "$random_vardas Uzima: $size cm3. Daikto spalva: $spalva"
+    ];
+}
 ?>
 <html>
     <head>
-        <title>Rankinukas</title>
+        <title>Random Rankinukas</title>
     </head>
     <body>
-        <?php foreach ($rankinukas as $value): ?>
-            <p><?php print $value['summary']; ?></p>
+        <?php foreach ($rankinukas as $daiktas): ?>
+            <p><?php print $daiktas['info']; ?></p>
         <?php endforeach; ?>
     </body>
 </html>
