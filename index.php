@@ -1,41 +1,48 @@
 <?php
-$dishes = [
-    [
-        'name' => 'Eggplant salad',
-        'price' => 7.77,
-        'style' => 'eggplant',
-        'ingridients' => [
-            'Nuts',
-            'Joghurt'
-        ]
-    ],
-    [
-        'name' => 'Bamboodish',
-        'price' => 6.66,
-        'style' => 'bamboo',
-        'ingridients' => [
-            'Rice',
-            'More meat'
-        ]
-    ]
-];
+$daiktai  = [
+    '0' => [
+        'daigtas' => 'lupdazys',
+        'dyds' => rand(1, 10),
+         'dark'  => rand(0, 1),
+         ],
+     '1' => [
+        'daigtas' => 'tamponai',
+        'dyds' => rand(1, 10),
+         'dark'  => rand(0, 1),
+        ],
+     '2' => [
+        'daigtas' => 'raktas',
+        'dyds' => rand(1, 10),
+         'dark'  => rand(0, 1),
+        ],
+     '3' => [
+        'daigtas' => 'veidrodis',
+        'dyds' => rand(1, 10),
+         'dark'  => rand(0, 1),
+        ],
+     '4' => [
+        'daigtas' => 'prakladkes',
+        'dyds' => rand(1, 10),
+         'dark'  => rand(0, 1),
+        ],
+     '5' => [
+        'daigtas' => 'telefas',
+        'dyds' => rand(1, 10),
+         'dark'  => rand(0, 1),
+        ],
+    '6' => [
+        'daigtas' => 'debilo_fotke',
+        'dyds' => rand(1, 10),
+         'dark'  => rand(0, 1),
+        ],
+    ];
+
+$rankinuko_dydis = rand(0, 6);
+$rankinukas = [];
+
+for ($x = 0; $x <= $rankinuko_dydis; $x++) {
+   
+$rankinukas[] = $daiktai[$x];
+}
+var_dump($rankinukas);
 ?>
-<html>
-    <head>
-        <title>Dishes uzduotis</title>
-        <link rel="stylesheet" href="css/main.css">
-    </head>
-    <body>
-        <?php foreach ($dishes as $dish): ?>
-            <div class="<?php print $dish['style']; ?>">
-                <h2><?php print $dish['name']; ?></h2>
-                <ul>
-                    <?php foreach ($dish['ingridients'] as $part): ?>
-                        <li><?php print $part; ?></li>
-                    <?php endforeach; ?>
-                </ul>
-                <p class="dish-info">Kaina: <?php print $dish['price']; ?> Eur</p>
-            </div>
-        <?php endforeach; ?>
-    </body>
-</html>
