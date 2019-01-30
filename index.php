@@ -32,7 +32,9 @@ var_dump($balius);
     <body>
         <div>
             <?php foreach ($balius as $value): ?>
-            <p><?php print $value['kiekis'] ?> <span class="<?php print $value['stilius']?>"></span><?php print $value['pavadinimas'] . '(' . $value['kas_atnese'] . ')'; ?></p>
+                <p><?php print $value['kiekis'] ?>
+                   <span class="<?php print $value['stilius'] ?>"></span>
+                       <?php print $value['pavadinimas'] . '(' . $value['kas_atnese'] . ')'; ?></p>
             <?php endforeach; ?>
         </div>
     </body>

@@ -3,6 +3,7 @@ span {
     background-size: cover;
     width: 150px;
     height: 150px;
+    display: inline-block;
 }
 .kibiras {
     color: darkmagenta;
