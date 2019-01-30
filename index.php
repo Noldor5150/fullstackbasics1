@@ -27,5 +27,5 @@ $fiatas = [
         'dizaineris' => 'Sergio Sartorelli'
     ]
 ];
-var_dump($fiatai);
+var_dump($fiatas);
 ?>
