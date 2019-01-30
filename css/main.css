@@ -1,14 +1,18 @@
-div {
+span {
     background-repeat: no-repeat;
     background-size: cover;
     width: 150px;
     height: 150px;
 }
-.eggplant {
+.kibiras {
     color: darkmagenta;
     background-image: url(../images/eggplant.gif);
 }
-.bamboo {
+.kilogramai {
+    color: darkcyan;
+    background-image: url(../images/bamboo.gif);
+}
+.litrai {
     color: darkcyan;
     background-image: url(../images/bamboo.gif);
 }
