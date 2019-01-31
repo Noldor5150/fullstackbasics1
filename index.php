@@ -19,7 +19,7 @@ $slotai = slot_run(3, 3);
         <?php foreach ($slotai as $eiles): ?>
             <div class="flex">
                 <?php foreach ($eiles as $stulpai): ?>
-                    <div class="klase-<?php print $stulpai ?>"></div>
+                    <div class="class-<?php print $stulpai ?>"></div>
                 <?php endforeach; ?>
             </div>
         <?php endforeach; ?>

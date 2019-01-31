@@ -1,14 +1,14 @@
 
-.klase-1, .klase-0 {
-    width: 150px;
-    height: 150px;
+.class-1, .class-0 {
+    width: 200px;
+    height: 200px;
     background-size: contain;
     background-repeat: no-repeat;
 }
-.klase-1 {
+.class-1 {
     background-image: url('../images/bamboo.gif');
 }
-.klase-0 {
+.class-0 {
     background-image: url('../images/eggplant.gif');
 }
 .flex {
