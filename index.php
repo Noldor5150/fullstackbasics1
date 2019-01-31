@@ -1,16 +1,15 @@
 <?php
-function slot_run() {
-    $slot = [];
-    for ($i = 0; $i < 6; $i++) {
-        for ($j = 0; $j < 5; $j++) {
-            $slot[$i][$j] = rand(0, 1);
+function slot_run($rows, $cols) {
+    $array = [];
+    for ($i = 0; $i < $rows; $i++) {
+        for ($j = 0; $j < $cols; $j++) {
+            $array[$i][$j] = rand(0, 1);
         }
     }
-    return $slot;
+    return $array;
 }
-var_dump(slot_run());
+var_dump(slot_run(3, 4));
 ?>
-
 
 
 
