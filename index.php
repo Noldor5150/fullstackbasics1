@@ -8,9 +8,23 @@ function slot_run($rows, $cols) {
     }
     return $array;
 }
-var_dump(slot_run(3, 4));
+$slotai = slot_run(3, 3);
 ?>
-
+<html>
+    <head>
+        <title>Foras fore f-ja</title>
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <?php foreach ($slotai as $eiles): ?>
+            <div class="flex">
+                <?php foreach ($eiles as $stulpai): ?>
+                    <div class="klase-<?php print $stulpai ?>"></div>
+                <?php endforeach; ?>
+            </div>
+        <?php endforeach; ?>
+    </body>
+</html>
 
 
 

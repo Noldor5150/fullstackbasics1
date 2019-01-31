@@ -1,19 +1,16 @@
-span {
-    background-repeat: no-repeat;
-    background-size: cover;
+
+.klase-1, .klase-0 {
     width: 150px;
     height: 150px;
-    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
-.kibiras {
-    color: darkmagenta;
-    background-image: url(../images/eggplant.gif);
+.klase-1 {
+    background-image: url('../images/bamboo.gif');
 }
-.kilogramai {
-    color: darkcyan;
-    background-image: url(../images/bamboo.gif);
+.klase-0 {
+    background-image: url('../images/eggplant.gif');
 }
-.litrai {
-    color: darkcyan;
-    background-image: url(../images/bamboo.gif);
-}
+.flex {
+    display: flex;
+} 
