@@ -8,24 +8,34 @@ function slot_run($rows, $cols) {
     }
     return $array;
 }
-$slotai = slot_run(3, 3);
+function slot_check($array) {
+    $winners = [];
+    foreach ($array as $key => $value) {
+        if (array_sum($value) == count($value)) {
+            $winners[] = $key;
+        }
+    };
+    return $winners;
+}
+$game = slot_run(3, 3);
+var_dump(slot_check($game));
 ?>
 <html>
     <head>
-        <title>Foras fore f-ja</title>
+        <title>Function slotRun</title>
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        <?php foreach ($slotai as $eiles): ?>
-            <div class="flex">
-                <?php foreach ($eiles as $stulpai): ?>
-                    <div class="class-<?php print $stulpai ?>"></div>
-                <?php endforeach; ?>
-            </div>
-        <?php endforeach; ?>
+        <table>
+            <?php foreach ($game as $cols): ?>
+                <tr>
+                    <?php foreach ($cols as $col): ?>
+                        <td class="<?php print ($col ? 'gold' : 'silver'); ?>"></td>
+                    <?php endforeach; ?>
+                </tr>
+            <?php endforeach; ?>
+        </table>
     </body>
 </html>
 
-
-
-
+   
