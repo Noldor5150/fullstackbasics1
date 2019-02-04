@@ -1,45 +1,43 @@
-
 <?php
 $termometras = [
     [
-        'forma' => 'apskritimas',
-        'spalva' => 'zalia',
-        'textas' => 'AS'
+        'text' => 'as',
+        'color' => 'green',
+        'form' => 'apskritimas',
     ],
     [
-        'forma' => 'kvadratas',
-        'spalva' => 'zalia',
-        'textas' => 'B'
+        'text' => 'B',
+        'color' => 'green',
+        'form' => 'kvadratas',
     ],
     [
-        'forma' => 'kvadratas',
-        'spalva' => 'orange',
-        'textas' => 'B'
+        'text' => 'B',
+        'color' => 'orange',
+        'form' => 'kvadratas',
     ],
     [
-        'forma' => 'kvadratas',
-        'spalva' => 'raudona',
-        'textas' => 'D'
-    ]
+        'text' => 'D',
+        'color' => 'red',
+        'form' => 'kvadratas',
+    ],  
 ];
-var_dump($termometras);
 ?>
-?>
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
-        <title>About</title>
+        <meta charset="UTF-8">
+        <title>termometras</title>
         <link rel="stylesheet" href="css/main.css">
     </head>
-    <div class=“termometras”>
-        <?php foreach ($termometras as $key => $value): ?>
-            <?php if ($key == $names[$term_rand]): ?>
-                <div><?php print $names[$term_rand]; ?></div>
-            <?php else: ?>
-                <div class="padala">Nieko</div>
-            <?php endif; ?>
-        <?php endforeach; ?>
-
-    </div>
-</body>
+    <body>
+        <div id="flexContainer">
+            <?php foreach ($termometras as $key => $value): ?>
+                <div class='block <?php print $termometras[$key]['color'].' '. $termometras[$key]['form']; ?>'>
+                        <?php print $termometras[$key]['text']; ?>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </body>
 </html>
-   
+
+

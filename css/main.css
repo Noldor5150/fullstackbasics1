@@ -1,59 +1,24 @@
+#flexContainer {
+    display: flex;
 
-body {
-    font-size: 20pt;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
-.about-0 {
-    background-image: url('../images/white.jpg');
-    color: black;
-}
-.about-1 {
-    background-image: url('../images/black.jpg');
-    color: white;
-}
-
-.backgroundimg {
-    background-image: url('../images/friend.png');
+.block {
+    width: 150px;
+    height: 50px;
+    border: 1px solid black;
+    margin: 20px;
     text-align: center;
-} 
-.hashas {
-    color: green;
+    font-size: 45px;
 }
-.bg-about {
-    color: white;
-    background-image: url('../images/bg_about.jpg');
+.green {
+    background-color: green;
 }
-.bg-about h1, .bg-about h2 {
-    margin-left: 20px;
-    padding: 5px;
-    border-radius: 2px;
-    float: left;
-    clear: both;
-    background-color: rgba(0,0,0,0.5);
+.orange {
+    background-color: orange;
 }
-nav {
-    width: 100%;
-    display: flex;
+.red {
+    background-color:#8C2100;
 }
-a {
-    margin: 0 0 20px 70px;
-    color: white;
-}
-a span {
-    padding: 5px;
-    background-color: rgba(0,0,0,0.5);
-}
-a:hover {
-    color: gold;
-}
-.termometras {
-    display: flex;
-    flex-direction: row;
-    height: 300px;
-    widh: 1000px
-}
-.padala{
-    height: 30px;
-    widh: 100px
+.apskritimas {
+    border-radius: 50%;
 }
