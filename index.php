@@ -22,6 +22,26 @@ $termometras = [
     ],
 ];
 
+$istorijos = [
+    '0 lygis',
+    '1 lygis',
+    'antas lygis',
+    '3 lygis'
+];
+
+function history($x1, $l) {
+    $newhistory =[];
+    foreach ($x1 as $key => $parametras) {
+        if ($key <= $l) {
+             $newhistory[] = $parametras;
+        }
+    }
+    return $newhistory;
+}
+$istorijos = history($istorijos, rand(0, 3));
+var_dump($istorijos);
+
+
 function pzdamat($x1, $l) {
     foreach ($x1 as $key => $parametras) {
         if ($key > $l) {
@@ -36,7 +56,7 @@ function pzdamat($x1, $l) {
 }
 
 $termometras = pzdamat($termometras, rand(0, 3));
-var_dump($termometras)
+
 ?>
 
 <!DOCTYPE html>
@@ -48,13 +68,13 @@ var_dump($termometras)
     </head>
     <body>
         <div id="flexContainer">
-            <?php foreach ($termometras as $parametras): ?>
+<?php foreach ($termometras as $parametras): ?>
                 <div class='block <?php print $parametras['color'] . ' ' . $parametras['form']; ?>'>
-                    <?php if ($parametras['show_text']): ?>
-                      <span>   <?php print $parametras['text']; ?></span>
+                <?php if ($parametras['show_text']): ?>
+                        <span>   <?php print $parametras['text']; ?></span>
                     <?php endif; ?>
                 </div>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
         </div>
     </body>
 </html>
