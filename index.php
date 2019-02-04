@@ -27,12 +27,15 @@ function pzdamat($x1, $l) {
         if ($key > $l) {
             $x1[$key]['color'] = 'pilka';
         }
+        $x1[$key]['show_text'] = true;
     }
     return $x1;
 }
 
 $termometras = pzdamat($termometras, rand (0, 3));
+var_dump($termometras)
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
