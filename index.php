@@ -1,41 +1,45 @@
+
 <?php
-function slot_run($rows, $cols) {
-    $array = [];
-    for ($i = 0; $i < $rows; $i++) {
-        for ($j = 0; $j < $cols; $j++) {
-            $array[$i][$j] = rand(0, 1);
-        }
-    }
-    return $array;
-}
-function slot_check($array) {
-    $winners = [];
-    foreach ($array as $key => $value) {
-        if (array_sum($value) == count($value)) {
-            $winners[] = $key;
-        }
-    };
-    return $winners;
-}
-$game = slot_run(3, 3);
-var_dump(slot_check($game));
+$termometras = [
+    [
+        'forma' => 'apskritimas',
+        'spalva' => 'zalia',
+        'textas' => 'AS'
+    ],
+    [
+        'forma' => 'kvadratas',
+        'spalva' => 'zalia',
+        'textas' => 'B'
+    ],
+    [
+        'forma' => 'kvadratas',
+        'spalva' => 'orange',
+        'textas' => 'B'
+    ],
+    [
+        'forma' => 'kvadratas',
+        'spalva' => 'raudona',
+        'textas' => 'D'
+    ]
+];
+var_dump($termometras);
+?>
 ?>
 <html>
     <head>
-        <title>Function slotRun</title>
+        <title>About</title>
         <link rel="stylesheet" href="css/main.css">
     </head>
-    <body>
-        <table>
-            <?php foreach ($game as $cols): ?>
-                <tr>
-                    <?php foreach ($cols as $col): ?>
-                        <td class="<?php print ($col ? 'gold' : 'silver'); ?>"></td>
-                    <?php endforeach; ?>
-                </tr>
-            <?php endforeach; ?>
-        </table>
-    </body>
-</html>
+    <div class=“termometras”>
+        <?php foreach ($termometras as $key => $value): ?>
+            <?php if ($key == $names[$term_rand]): ?>
+                <div><?php print $names[$term_rand]; ?></div>
+            <?php else: ?>
+                <div class="padala">Nieko</div>
+            <?php endif; ?>
+        <?php endforeach; ?>
 
+    </div>
+</body>
+</html>
    
