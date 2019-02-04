@@ -19,8 +19,17 @@ $termometras = [
         'text' => 'D',
         'color' => 'red',
         'form' => 'kvadratas',
-    ],  
+    ],
 ];
+
+function pzdamat($termometras1) {
+    foreach ($termometras1 as &$parametras) {
+
+        $parametras['color'] = 'red';
+    }
+    return $termometras1;
+}
+$termometras = pzdamat($termometras);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,9 +40,9 @@ $termometras = [
     </head>
     <body>
         <div id="flexContainer">
-            <?php foreach ($termometras as $key => $value): ?>
-                <div class='block <?php print $termometras[$key]['color'].' '. $termometras[$key]['form']; ?>'>
-                        <?php print $termometras[$key]['text']; ?>
+            <?php foreach ($termometras as $parametras): ?>
+                <div class='block <?php print $parametras['color'] . ' ' . $parametras['form']; ?>'>
+                    <span>   <?php print $parametras['text']; ?></span>
                 </div>
             <?php endforeach; ?>
         </div>
