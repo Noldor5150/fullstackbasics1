@@ -23,24 +23,36 @@ $termometras = [
 ];
 
 $istorijos = [
-    '0 lygis',
-    '1 lygis',
-    'antas lygis',
-    '3 lygis'
+    [
+        'storie' => '....once upon a time....',
+        'color' => 'green',
+    ],
+    [
+        'storie' => '...couple Bamboos were "fucking" around...',
+        'color' => 'green',
+    ],
+    [
+        'storie' => '...some Eggplants also did...',
+        'color' => 'orange',
+    ],
+    [
+        'storie' => '...so they met eachother, and drinking party began...',
+        'color' => 'red',
+    ],
 ];
 
 function history($x1, $l) {
-    $newhistory =[];
+    $newhistory = [];
     foreach ($x1 as $key => $parametras) {
         if ($key <= $l) {
-             $newhistory[] = $parametras;
+            $newhistory[] = $parametras;
         }
     }
     return $newhistory;
 }
-$istorijos = history($istorijos, rand(0, 3));
-var_dump($istorijos);
 
+$bendras_random_skaicius = rand(0, 3);
+$istorijos = history($istorijos, $bendras_random_skaicius);
 
 function pzdamat($x1, $l) {
     foreach ($x1 as $key => $parametras) {
@@ -55,8 +67,7 @@ function pzdamat($x1, $l) {
     return $x1;
 }
 
-$termometras = pzdamat($termometras, rand(0, 3));
-
+$termometras = pzdamat($termometras, $bendras_random_skaicius);
 ?>
 
 <!DOCTYPE html>
@@ -68,13 +79,22 @@ $termometras = pzdamat($termometras, rand(0, 3));
     </head>
     <body>
         <div id="flexContainer">
-<?php foreach ($termometras as $parametras): ?>
+            <?php foreach ($termometras as $parametras): ?>
                 <div class='block <?php print $parametras['color'] . ' ' . $parametras['form']; ?>'>
-                <?php if ($parametras['show_text']): ?>
+                    <?php if ($parametras['show_text']): ?>
                         <span>   <?php print $parametras['text']; ?></span>
                     <?php endif; ?>
                 </div>
-                <?php endforeach; ?>
+            <?php endforeach; ?>
+        </div>
+        <div id="stories">
+            <ul id="stories">
+                <?php foreach ($istorijos as $parametras): ?>
+                    <li class="storie-<?php print $parametras['color'] ?>">
+                        <?php print $parametras['storie'] ?>
+                    </li>
+                </ul>
+            <?php endforeach; ?>
         </div>
     </body>
 </html>

@@ -27,3 +27,18 @@
     width: 60px;
     height: 60px;
 }
+#stories{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.storie-green {
+ color: green;
+}
+.storie-orange {
+ color: orange;
+}
+.storie-red {
+ color: #8C2100;
+}
