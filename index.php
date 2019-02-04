@@ -22,14 +22,14 @@ $termometras = [
     ],
 ];
 
-function pzdamat($x1) {
+function pzdamat($x1 ,$l) {
     foreach ($x1 as $key => $parametras) {
-
-        $x1[$key]['color'] = 'red';
+        $x1[$key]['color'] = 'pilka';
     }
+    $x1[$l]['color'] = 'red';
     return $x1;
 }
-$termometras = pzdamat($termometras);
+$termometras = pzdamat($termometras, 1);
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -19,6 +19,9 @@
 .red {
     background-color:#8C2100;
 }
+.pilka {
+    background-color: grey;
+}
 .apskritimas {
     border-radius: 50%;
     width: 60px;
