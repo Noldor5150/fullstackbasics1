@@ -22,14 +22,16 @@ $termometras = [
     ],
 ];
 
-function pzdamat($x1 ,$l) {
+function pzdamat($x1, $l) {
     foreach ($x1 as $key => $parametras) {
-        $x1[$key]['color'] = 'pilka';
+        if ($key > $l) {
+            $x1[$key]['color'] = 'pilka';
+        }
     }
-    $x1[$l]['color'] = 'red';
     return $x1;
 }
-$termometras = pzdamat($termometras, 1);
+
+$termometras = pzdamat($termometras, rand (0, 3));
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,11 +42,11 @@ $termometras = pzdamat($termometras, 1);
     </head>
     <body>
         <div id="flexContainer">
-            <?php foreach ($termometras as $parametras): ?>
+<?php foreach ($termometras as $parametras): ?>
                 <div class='block <?php print $parametras['color'] . ' ' . $parametras['form']; ?>'>
                     <span>   <?php print $parametras['text']; ?></span>
                 </div>
-            <?php endforeach; ?>
+<?php endforeach; ?>
         </div>
     </body>
 </html>
