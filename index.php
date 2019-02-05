@@ -1,9 +1,7 @@
 <?php
-$roll_joints = true;
-$joint1 = &$roll_joints;
-$joint2 = &$joint1;
-$joint3 = &$joint2;
-print $joint1;
-print $joint2;
-print $joint3;
-?>
+
+$sheep = ['scheise', 'bliat', 'suca', 'subine', 'zanuda'];
+for ($i = 0; $i < 5; $i++) {
+    $sheep[$i] = &$sheep[0];
+}
+var_dump($sheep);
