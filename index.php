@@ -1,25 +1,33 @@
 <?php
-//function pachmielas($vodke_ml) {
-//    $pachmielas_val = 0;
-//    if ($vodke_ml > 0) {
-//        $vodke_ml -= 50;
-//        $pachmielas_val += pachmielas($vodke_ml);
-//        $pachmielas_val += 0.5 + $pachmielas_val * 0.15;
-//    }
-//    return $pachmielas_val;
-//}
-//
-//$x = round(pachmielas(1000), 2);
-//print $x;
-function babuska_kvepia($kvepalu_kiekis_ml) {
-    $atstumas_metrais = 0;
-    if ($kvepalu_kiekis_ml > 50) {
-        $kvepalu_kiekis_ml = $kvepalu_kiekis_ml * 0.8;
-        $atstumas_metrais += 1 + babuska_kvepia($kvepalu_kiekis_ml);
-    }
-    return $atstumas_metrais;
-}
-$y = babuska_kvepia(100);
-print $y;
 
+function pakelt_kvadratu($x) {
+    $x = $x * $x;
+    return $x;
+}
+
+$atsakymas = 0;
+if (isset($_POST['skaicius'])) {
+    $skaicius = $_POST['skaicius'];
+
+    if (empty($skaicius)) {
+        $atsakymas = 'jobstvajumat';
+    } else {
+        $atsakymas = pakelt_kvadratu($skaicius);
+    }
+}
 ?>
+<html>
+    <head>
+        <title>About</title>
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <form method="POST">
+            <div> Ka pakelt kvadratu?
+                <input type="text" name ="skaicius" placeholder="iveskite skaiciu">
+                <input type="submit" value="PASHLO">
+            </div>
+        </form>
+        <h1>Atsakymas: <?php print $atsakymas; ?></h1>
+    <body>
+</html>
