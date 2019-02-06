@@ -1,13 +1,15 @@
 <?php
-
-$sheep = ['scheise'];
-for ($i = 1; $i < 5; $i++) {
-    $sheep[$i] = &$sheep[$i - 1];
+function paxmas($kiekis) {
+    $valandos = 0;
+    $stopke = 50;
+    $kiekis= $kiekis - $stopke;
+    
+    if ($kiekis > 0) {
+        $paxmo_valandos = paxmas($kiekis);
+        $valandos = $valandos + 0.5 + 0.15 * $paxmo_valandos + $paxmo_valandos;
+    }
+   $valandos = round($valandos, 2);
+    return $valandos;
 }
-foreach ($sheep as $key => $value) {
-    unset($sheep[$key]);
-    $sheep[$key] = $value;
-}
-$sheep[1] = 'sabaka';
-var_dump($sheep);
-?>
+print paxmas(1000);
+?>           
