@@ -1,15 +1,22 @@
 <?php
-function paxmas($kiekis) {
-    $valandos = 0;
-    $stopke = 50;
-    $kiekis= $kiekis - $stopke;
-    
-    if ($kiekis > 0) {
-        $paxmo_valandos = paxmas($kiekis);
-        $valandos = $valandos + 0.5 + 0.15 * $paxmo_valandos + $paxmo_valandos;
+
+function pachmielas($vodke_ml) {
+    $id = $vodke_ml;
+    var_dump("ID: $id - Iškviesta funkcija, vodke_ml = $vodke_ml");
+    $pachmielas_val = 0;
+    if ($vodke_ml > 0) {
+        var_dump("ID: $id - $vodke_ml > 0, geriam stoparika");
+        $vodke_ml -= 50;
+        var_dump("ID: $id - Funkciją vėl, paduodami vodke_ml = $vodke_ml");
+        $pachmielas_val += pachmielas($vodke_ml);
+        var_dump("ID: $id - Grįžo paskaičiuotas pachmielas_val = $pachmielas_val");
+        $pachmielas_val += 0.5 + $pachmielas_val * 0.15;
+        var_dump("ID: $id - Pridedam 0.5 + pachmielas_val * 0.15. Dabar pachmielas_val = $pachmielas_val");
     }
-   $valandos = round($valandos, 2);
-    return $valandos;
+    var_dump("ID: $id - Returninam pachmielas_val = $pachmielas_val");
+    return $pachmielas_val;
 }
-print paxmas(1000);
-?>           
+
+$x = round(pachmielas(100), 2);
+print $x;
+?>
