@@ -1,22 +1,25 @@
 <?php
-
-function pachmielas($vodke_ml) {
-    $id = $vodke_ml;
-    var_dump("ID: $id - Iškviesta funkcija, vodke_ml = $vodke_ml");
-    $pachmielas_val = 0;
-    if ($vodke_ml > 0) {
-        var_dump("ID: $id - $vodke_ml > 0, geriam stoparika");
-        $vodke_ml -= 50;
-        var_dump("ID: $id - Funkciją vėl, paduodami vodke_ml = $vodke_ml");
-        $pachmielas_val += pachmielas($vodke_ml);
-        var_dump("ID: $id - Grįžo paskaičiuotas pachmielas_val = $pachmielas_val");
-        $pachmielas_val += 0.5 + $pachmielas_val * 0.15;
-        var_dump("ID: $id - Pridedam 0.5 + pachmielas_val * 0.15. Dabar pachmielas_val = $pachmielas_val");
+//function pachmielas($vodke_ml) {
+//    $pachmielas_val = 0;
+//    if ($vodke_ml > 0) {
+//        $vodke_ml -= 50;
+//        $pachmielas_val += pachmielas($vodke_ml);
+//        $pachmielas_val += 0.5 + $pachmielas_val * 0.15;
+//    }
+//    return $pachmielas_val;
+//}
+//
+//$x = round(pachmielas(1000), 2);
+//print $x;
+function babuska_kvepia($kvepalu_kiekis_ml) {
+    $atstumas_metrais = 0;
+    if ($kvepalu_kiekis_ml > 50) {
+        $kvepalu_kiekis_ml = $kvepalu_kiekis_ml * 0.8;
+        $atstumas_metrais += 1 + babuska_kvepia($kvepalu_kiekis_ml);
     }
-    var_dump("ID: $id - Returninam pachmielas_val = $pachmielas_val");
-    return $pachmielas_val;
+    return $atstumas_metrais;
 }
+$y = babuska_kvepia(100);
+print $y;
 
-$x = round(pachmielas(100), 2);
-print $x;
 ?>
