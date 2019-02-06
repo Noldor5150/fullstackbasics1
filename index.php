@@ -1,19 +1,7 @@
 <?php
-
-function pakelt_kvadratu($x) {
-    $x = $x * $x;
-    return $x;
-}
-
-$atsakymas = 0;
-if (isset($_POST['skaicius'])) {
-    $skaicius = $_POST['skaicius'];
-
-    if (empty($skaicius)) {
-        $atsakymas = 'jobstvajumat';
-    } else {
-        $atsakymas = pakelt_kvadratu($skaicius);
-    }
+$atsakymas = 0 ;
+if (isset($_POST['atsakymas'])) {
+    $atsakymas = $_POST['atsakymas']+ 1;
 }
 ?>
 <html>
@@ -23,9 +11,8 @@ if (isset($_POST['skaicius'])) {
     </head>
     <body>
         <form method="POST">
-            <div> Ka pakelt kvadratu?
-                <input type="text" name ="skaicius" placeholder="iveskite skaiciu">
-                <input type="submit" value="PASHLO">
+            <div>
+                <input type="submit" name = "atsakymas" value="<?php print $atsakymas; ?>">
             </div>
         </form>
         <h1>Atsakymas: <?php print $atsakymas; ?></h1>
