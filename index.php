@@ -1,8 +1,4 @@
 <?php
-$input = filter_input_array(INPUT_POST, [
-    'vardas' => FILTER_SANITIZE_SPECIAL_CHARS,
-        ]);
-
 $array = [
     'input' => [
         'name' =>
@@ -31,6 +27,17 @@ $array = [
         ]
     ]
 ];
+var_dump($_POST);
+
+function get_safe_input($form) {
+    $filtro_parametrai = [];
+    foreach ($form['input'] as $key => $value) {
+        $filtro_parametrai[$key] = FILTER_SANITIZE_SPECIAL_CHARS;
+    }
+    $filtro_parametrai['action'] = FILTER_SANITIZE_SPECIAL_CHARS;     
+    return filter_input_array(INPUT_POST, $filtro_parametrai);
+}
+var_dump(get_safe_input($array));
 ?>
 <html>
     <head>
