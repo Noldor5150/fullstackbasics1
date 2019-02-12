@@ -1,68 +1,108 @@
 <?php
-$array = [
-    'input' => [
-        'name' =>
-        [
+
+/**
+ * Prevents HTML/JS/MYSQL injection
+ * for all $form fields
+ * & adds error messages if so
+ * @param array $form
+ * @return array Safe Input
+ */
+function get_safe_input($form) {
+    $filtro_parametrai = [
+        'action' => FILTER_SANITIZE_SPECIAL_CHARS
+    ];
+    foreach ($form['fields'] as $field_id => $value) {
+        $filtro_parametrai[$field_id] = FILTER_SANITIZE_SPECIAL_CHARS;
+    }
+    return filter_input_array(INPUT_POST, $filtro_parametrai);
+}
+
+/**
+ * Check all form fields if they are not empty
+ * & adds error messages if so
+ * @param array $safe_input
+ * @param array $form
+ * @return type
+
+ */
+function validate_not_empty($safe_input, &$form) {
+    foreach ($form['fields'] as $field_id => &$field) {
+        if ($field['validate'] && $safe_input[$field_id] == '') {
+            $field['error_msg'] = strtr('Jobans/a tu buhurs/gazele, '
+                    . 'kad palika @field tuscia!', ['@field' => $field['label']
+            ]);
+        }
+    }
+    return $form;
+}
+
+$form = [
+    'fields' => [
+        'vardas' => [
+            'label' => 'Mano vardas',
             'type' => 'text',
             'placeholder' => 'Vardas',
-            'label' => 'Mano Vardas'
+            'validate' =>
+            [
+                'validate_not_empty'
+            ],
         ],
-        'zirniai' =>
-        [
+        'zirniu_kiekis' => [
+            'label' => 'Kiek turiu zirniu?',
             'type' => 'text',
             'placeholder' => '1-100',
-            'label' => 'Kiek turiu zirniu?'
+            'validate' =>
+            [
+                'validate_not_empty'
+            ],
         ],
-        'reason' =>
-        [
-            'placeholder' => 'issipasakok',
-            'label' => 'Paslaptis',
+        'paslaptis' => [
+            'label' => 'Paslaptis, kodel turiu zirniu',
             'type' => 'password',
-        ],
+            'placeholder' => 'Issipasakok',
+            'validate' =>
+            [
+                'validate_not_empty'
+            ],
+        ]
     ],
-    'button' => [
-        'do_zirniai' =>
-        [
-            'label' => 'paberti'
+    'buttons' => [
+        'do_zirniai' => [
+            'text' => 'Paberti...'
         ]
     ]
 ];
-var_dump($_POST);
 
-function get_safe_input($form) {
-    $filtro_parametrai = [];
-    foreach ($form['input'] as $key => $value) {
-        $filtro_parametrai[$key] = FILTER_SANITIZE_SPECIAL_CHARS;
-    }
-    $filtro_parametrai['action'] = FILTER_SANITIZE_SPECIAL_CHARS;     
-    return filter_input_array(INPUT_POST, $filtro_parametrai);
+if (!empty($_POST)) {
+    $safe_input = get_safe_input($form);
+    validate_not_empty($safe_input, $form);
 }
-var_dump(get_safe_input($array));
 ?>
 <html>
     <head>
-        <title>Forma is array</title>
-        <link rel="stylesheet" href="css/main.css">
+        <title>02/11/2019</title>
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
+        <h1>Generuojam forma is array</h1>
         <form method="POST">
-            <?php foreach ($array['input'] as $input_index => $input): ?>
+            <!-- Input Fields -->
+            <?php foreach ($form['fields'] as $field_id => $field): ?>
                 <label>
-                    <span><?php print $input['label']; ?></span>
-                    <input type="<?php print $input['type']; ?>" 
-                           name="<?php print $input_index; ?>" 
-                           placeholder="<?php print $input['placeholder']; ?>">
+                    <span><?php print $field['label']; ?></span>
+                    <input type="<?php print $field['type']; ?>" name="<?php print $field_id; ?>" placeholder="<?php print $field['placeholder']; ?>"/>
+                    <?php if (isset($field['error_msg'])): ?>
+                        <span class="error"><?php print $field['error_msg']; ?></span>
+                    <?php endif; ?>
                 </label>
             <?php endforeach; ?>
-            <?php foreach ($array['button'] as $key => $value): ?>
-                <button
-                    name="action" 
-                    value="<?php print $key; ?>">
-                        <?php print $value['label']; ?>
+            <!-- Buttons -->
+            <?php foreach ($form['buttons'] as $button_id => $button): ?>
+                <button name="action" value="<?php print $button_id; ?>">
+                    <?php print $button['text']; ?>
                 </button>
             <?php endforeach; ?>
         </form>
     </body>
 </html>
 
-   
