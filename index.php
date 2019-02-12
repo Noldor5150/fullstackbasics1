@@ -47,9 +47,9 @@ function validate_is_number($field_input, &$field) {
 function validate_form($input, &$form) {
     foreach ($form['fields'] as $field) {
         $validate_not_empty[] = $field['validators'];
-        foreach ($validate_not_empty as $one_validation) {
-            if (is_callable($one_validation)) {
-                var_dump('is callable');
+        foreach ($field['validate'] as $validator) {
+            if (is_callable($validator)) {
+                $validator($field_input, &$field);
             } else {
                 throw new Exception('Not callable function');
             }
