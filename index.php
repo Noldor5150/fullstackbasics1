@@ -25,15 +25,14 @@ function get_safe_input($form) {
  * @return type
 
  */
-function validate_not_empty($safe_input, &$form) {
-    foreach ($form['fields'] as $field_id => &$field) {
-        if ($field['validators'] && $safe_input[$field_id] == '') {
-            $field['error_msg'] = strtr('Jobans/a tu buhurs/gazele, '
-                    . 'kad palika @field tuscia!', ['@field' => $field['label']
-            ]);
-        }
+function validate_not_empty($safe_input, &$field) {
+    if (strlen($safe_input) == 0) {
+        $field['error_msg'] = strtr('Jobans/a tu buhurs/gazele, '
+                . 'kad palika @field tuscia!', ['@field' => $field['label']
+        ]);
+    } else {
+        return true;
     }
-    return $form;
 }
 
 function validate_form($input, &$form) {
