@@ -25,10 +25,19 @@ function get_safe_input($form) {
  * @return type
 
  */
-function validate_not_empty($safe_input, &$field) {
-    if (strlen($safe_input) == 0) {
+function validate_not_empty($field_input, &$field) {
+    if (strlen($field_input) == 0) {
         $field['error_msg'] = strtr('Jobans/a tu buhurs/gazele, '
                 . 'kad palika @field tuscia!', ['@field' => $field['label']
+        ]);
+    } else {
+        return true;
+    }
+}
+function validate_is_number($field_input, &$field) {
+    if (!is_numeric($field_input)) {
+        $field['error_msg'] = strtr('Jobans/a tu buhurs/gazele, '
+                . 'nes @field nera skaicius!', ['@field' => $field['label']
         ]);
     } else {
         return true;
