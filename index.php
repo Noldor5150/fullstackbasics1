@@ -28,7 +28,7 @@ function get_safe_input($form) {
 function validate_not_empty($field_input, &$field) {
     if (strlen($field_input) == 0) {
         $field['error_msg'] = strtr('Jobans/a tu buhurs/gazele, '
-                . 'kad palika @field tuscia!', ['@field' => $field['label']
+                . 'kad palikai @field tuscia!', ['@field' => $field['label']
         ]);
     } else {
         return true;
@@ -48,9 +48,13 @@ function validate_form($input, &$form) {
     foreach ($form['fields'] as $field_id => &$field) {
         foreach ($field['validators'] as $validator) {
             if (is_callable($validator)) {
-                $validator($input[$field_id], $field);
+                if (!$validator($input[$field_id], $field)) {
+                    break;
+                }
             } else {
-                throw new Exception(strtr('Nera "@validator" funkcijos!!!', ['@validator' => $validator]));
+                throw new Exception(strtr('Not callable @validator function', [
+                    '@validator' => $validator
+                ]));
             }
         }
     }
@@ -72,7 +76,8 @@ $form = [
             'placeholder' => '1-100',
             'validators' =>
             [
-                'validate_not_empty'
+                'validate_not_empty',
+                'validate_is_number'
             ],
         ],
         'paslaptis' => [
@@ -93,8 +98,8 @@ $form = [
 ];
 
 if (!empty($_POST)) {
-    $safe_input = get_safe_input($form);
-    validate_not_empty($safe_input, $form);
+    $input = get_safe_input($form);
+    validate_form($input, $form);
 }
 ?>
 <html>
