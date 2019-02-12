@@ -36,13 +36,15 @@ function validate_not_empty($safe_input, &$form) {
     return $form;
 }
 
-function validate_form($input, &$form){
-    foreach($form['fields'] as $field_id => &$field){
-        $validate_not_empty = $field['validators'];
-        if(is_callable($validate_not_empty)){
-            var_dump('is callable');
-        } else {
-            throw new Exception('Not callable function');
+function validate_form($input, &$form) {
+    foreach ($form['fields'] as $field) {
+        $validate_not_empty[] = $field['validators'];
+        foreach ($validate_not_empty as $one_validation) {
+            if (is_callable($one_validation)) {
+                var_dump('is callable');
+            } else {
+                throw new Exception('Not callable function');
+            }
         }
     }
 }
