@@ -45,19 +45,16 @@ function validate_is_number($field_input, &$field) {
 }
 
 function validate_form($input, &$form) {
-    foreach ($form['fields'] as $field) {
-        foreach ($field['validate'] as $validator) {
+    foreach ($form['fields'] as $field_id => &$field) {
+        foreach ($field['validators'] as $validator) {
             if (is_callable($validator)) {
-                $validator($field_input, &$field);
+                $validator($input[$field_id], $field);
             } else {
-                throw new Exception(strtr('Not callable @validator function', [
-                    '@validator' => $validator
-                ]));
+                throw new Exception(strtr('Nera "@validator" funkcijos!!!', ['@validator' => $validator]));
             }
         }
     }
 }
-
 $form = [
     'fields' => [
         'vardas' => [
