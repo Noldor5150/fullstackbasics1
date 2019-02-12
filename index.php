@@ -27,7 +27,7 @@ function get_safe_input($form) {
  */
 function validate_not_empty($safe_input, &$form) {
     foreach ($form['fields'] as $field_id => &$field) {
-        if ($field['validate'] && $safe_input[$field_id] == '') {
+        if ($field['validators'] && $safe_input[$field_id] == '') {
             $field['error_msg'] = strtr('Jobans/a tu buhurs/gazele, '
                     . 'kad palika @field tuscia!', ['@field' => $field['label']
             ]);
@@ -36,13 +36,25 @@ function validate_not_empty($safe_input, &$form) {
     return $form;
 }
 
+function validate_form($input, &$form){
+    foreach($form['fields'] as $field_id => &$field){
+        $validate_not_empty = $field['validators'];
+        if(is_callable($validate_not_empty)){
+            var_dump('is callable');
+        } else {
+            throw new Exception('Not callable function');
+        }
+    }
+}
+
+
 $form = [
     'fields' => [
         'vardas' => [
             'label' => 'Mano vardas',
             'type' => 'text',
             'placeholder' => 'Vardas',
-            'validate' =>
+            'validators' =>
             [
                 'validate_not_empty'
             ],
@@ -51,7 +63,7 @@ $form = [
             'label' => 'Kiek turiu zirniu?',
             'type' => 'text',
             'placeholder' => '1-100',
-            'validate' =>
+            'validators' =>
             [
                 'validate_not_empty'
             ],
@@ -60,7 +72,7 @@ $form = [
             'label' => 'Paslaptis, kodel turiu zirniu',
             'type' => 'password',
             'placeholder' => 'Issipasakok',
-            'validate' =>
+            'validators' =>
             [
                 'validate_not_empty'
             ],
