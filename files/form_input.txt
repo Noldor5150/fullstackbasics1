@@ -1,1 +1,1 @@
-{"action":"do_zirniai","vardas":"dura","zirniu_kiekis":"1555","paslaptis":"naxui"}
+[{"action":"do_zirniai","vardas":"asdsa","zirniu_kiekis":"150","paslaptis":"asdsa"},{"action":"do_zirniai","vardas":"sddd","zirniu_kiekis":"8","paslaptis":"asdsa"},{"action":"do_zirniai","vardas":"ffff","zirniu_kiekis":"122","paslaptis":"qwewqwe"}]
