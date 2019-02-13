@@ -111,6 +111,14 @@ $form = [
         'do_zirniai' => [
             'text' => 'Paberti...'
         ]
+    ],
+   'callbacks' => [
+        'success' => [
+            'funkcija_success'
+        ],
+        'error' => [
+            'funkcija_error'
+        ]        
     ]
 ];
 
