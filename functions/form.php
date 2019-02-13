@@ -41,7 +41,7 @@ function validate_form($input, &$form) {
     if ($success) {
         foreach ($form['callbacks']['success'] as $callback_function) {
             if (is_callable($callback_function)) {
-                $callback_function();
+                $callback_function($input,$form);
             } else {
                 throw new Exception(strtr('Not callable @callback_function function', [
                     '@callback_function' => $callback_function
@@ -51,7 +51,7 @@ function validate_form($input, &$form) {
     } else {
         foreach ($form['callbacks']['error'] as $callback_function) {
             if (is_callable($callback_function)) {
-                $callback_function();
+                $callback_function($input, $form);
             } else {
                 throw new Exception(strtr('Not callable @callback_function function', [
                     '@callback_function' => $callback_function
