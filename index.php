@@ -2,6 +2,35 @@
 define('STORAGE_FILE', 'files/form_input.txt');
 require_once 'functions/form.php';
 
+function array_to_file($array, $file) {
+    $string = json_encode($array);
+
+    return file_put_contents($file, $string);
+}
+
+function file_to_array($file) {
+    if (file_exists($file)) {
+        $string = file_get_contents($file);
+        if ($string !== false) {
+            $array = json_decode($string, true);
+            
+            return $array;
+        } else {
+            throw new Exception(strtr('@file not readable', [
+                '@file' => $file
+            ]));
+        }
+    } else {
+        throw new Exception(strtr(' @file not exists', [
+            '@file' => $file
+        ]));
+    }
+}
+
+function funkcija_success($input, $form) {
+    array_to_file($input, STORAGE_FILE);
+}
+
 $form = [
     'fields' => [
         'vardas' => [
@@ -9,7 +38,7 @@ $form = [
             'type' => 'text',
             'placeholder' => 'Vardas',
             'validate' =>
-                [
+            [
                 'validate_not_empty'
             ],
         ],
@@ -18,7 +47,7 @@ $form = [
             'type' => 'text',
             'placeholder' => '1-100',
             'validate' =>
-                [
+            [
                 'validate_not_empty',
                 'validate_is_number'
             ],
@@ -28,7 +57,7 @@ $form = [
             'type' => 'password',
             'placeholder' => 'Issipasakok',
             'validate' =>
-                [
+            [
                 'validate_not_empty',
             ],
         ]
@@ -38,20 +67,15 @@ $form = [
             'text' => 'Paberti...'
         ]
     ],
-   'callbacks' => [
+    'callbacks' => [
         'success' => [
             'funkcija_success'
         ],
         'error' => [
             'funkcija_error'
-        ]        
+        ]
     ]
 ];
-function array_to_file($array, $file) {
-    $string = json_encode($array);
-    
-    return file_put_contents($file, $string);
-}
 
 
 if (!empty($_POST)) {
@@ -59,9 +83,6 @@ if (!empty($_POST)) {
     validate_form($safe_input, $form);
 }
 
- function funkcija_success ($input, $form){
-     array_to_file($input, STORAGE_FILE);
- }
 
 ?>
 <html>
