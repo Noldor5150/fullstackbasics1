@@ -1,11 +1,10 @@
 <?php
-
 /**
- * Prevents HTML/JS/MYSQL injection
- * for all $form fields
- * & adds error messages if so
+ * Filters $_POST
+ * to form accordingly
+ * 
  * @param array $form
- * @return array Safe Input
+ * @return array safe input
  */
 function get_safe_input($form) {
     $filtro_parametrai = [
@@ -16,14 +15,39 @@ function get_safe_input($form) {
     }
     return filter_input_array(INPUT_POST, $filtro_parametrai);
 }
+/**
+ * Validates form
+ * 
+ * @param array $input
+ * @param array $form
+ * @throws Exception
+ */
+
+function validate_form($input, &$form) {
+    $success = true;
+    foreach ($form['fields'] as $field_id => &$field) {
+        foreach ($field['validate'] as $validator) {
+            if (is_callable($validator)) {
+                if (!$validator($input[$field_id], $field)) {
+                    $success = false;
+                    break;
+                }
+            } else {
+                throw new Exception(strtr('Not callable @validator function', [
+                    '@validator' => $validator
+                ]));
+            }
+        }
+    }
+    return $success;
+}
 
 /**
- * Check all form fields if they are not empty
- * & adds error messages if so
- * @param array $safe_input
- * @param array $form
- * @return type
-
+ * Checks if field is empty
+ * 
+ * @param string $field_input
+ * @param array $field $form Field
+ * @return boolean
  */
 function validate_not_empty($field_input, &$field) {
     if (strlen($field_input) == 0) {
@@ -34,6 +58,14 @@ function validate_not_empty($field_input, &$field) {
         return true;
     }
 }
+
+/**
+ * Checks if field is a number
+ * 
+ * @param string $field_input
+ * @param array $field $form Field
+ * @return boolean
+ */
 function validate_is_number($field_input, &$field) {
     if (!is_numeric($field_input)) {
         $field['error_msg'] = strtr('Jobans/a tu buhurs/gazele, '
@@ -44,29 +76,14 @@ function validate_is_number($field_input, &$field) {
     }
 }
 
-function validate_form($input, &$form) {
-    foreach ($form['fields'] as $field_id => &$field) {
-        foreach ($field['validators'] as $validator) {
-            if (is_callable($validator)) {
-                if (!$validator($input[$field_id], $field)) {
-                    break;
-                }
-            } else {
-                throw new Exception(strtr('Not callable @validator function', [
-                    '@validator' => $validator
-                ]));
-            }
-        }
-    }
-}
 $form = [
     'fields' => [
         'vardas' => [
             'label' => 'Mano vardas',
             'type' => 'text',
             'placeholder' => 'Vardas',
-            'validators' =>
-            [
+            'validate' =>
+                [
                 'validate_not_empty'
             ],
         ],
@@ -74,8 +91,8 @@ $form = [
             'label' => 'Kiek turiu zirniu?',
             'type' => 'text',
             'placeholder' => '1-100',
-            'validators' =>
-            [
+            'validate' =>
+                [
                 'validate_not_empty',
                 'validate_is_number'
             ],
@@ -84,9 +101,9 @@ $form = [
             'label' => 'Paslaptis, kodel turiu zirniu',
             'type' => 'password',
             'placeholder' => 'Issipasakok',
-            'validators' =>
-            [
-                'validate_not_empty'
+            'validate' =>
+                [
+                'validate_not_empty',
             ],
         ]
     ],
@@ -98,9 +115,10 @@ $form = [
 ];
 
 if (!empty($_POST)) {
-    $input = get_safe_input($form);
-    validate_form($input, $form);
+    $safe_input = get_safe_input($form);
+    validate_form($safe_input, $form);
 }
+
 ?>
 <html>
     <head>
@@ -110,16 +128,18 @@ if (!empty($_POST)) {
     <body>
         <h1>Generuojam forma is array</h1>
         <form method="POST">
+
             <!-- Input Fields -->
             <?php foreach ($form['fields'] as $field_id => $field): ?>
                 <label>
-                    <span><?php print $field['label']; ?></span>
+                    <p><?php print $field['label']; ?></p>
                     <input type="<?php print $field['type']; ?>" name="<?php print $field_id; ?>" placeholder="<?php print $field['placeholder']; ?>"/>
                     <?php if (isset($field['error_msg'])): ?>
-                        <span class="error"><?php print $field['error_msg']; ?></span>
+                        <p class="error"><?php print $field['error_msg']; ?></p>
                     <?php endif; ?>
                 </label>
             <?php endforeach; ?>
+
             <!-- Buttons -->
             <?php foreach ($form['buttons'] as $button_id => $button): ?>
                 <button name="action" value="<?php print $button_id; ?>">
@@ -129,4 +149,3 @@ if (!empty($_POST)) {
         </form>
     </body>
 </html>
-
