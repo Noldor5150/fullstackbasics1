@@ -1,1 +1,1 @@
-[{"action":"do_zirniai","vardas":"asdsa","zirniu_kiekis":"150","paslaptis":"asdsa"},{"action":"do_zirniai","vardas":"sddd","zirniu_kiekis":"8","paslaptis":"asdsa"},{"action":"do_zirniai","vardas":"ffff","zirniu_kiekis":"122","paslaptis":"qwewqwe"}]
+[{"action":"do_zirniai","vardas":"getcha PULL","zirniu_kiekis":"20","paslaptis":"dddddd"},{"action":"do_zirniai","vardas":"aasdsasd","zirniu_kiekis":"150","paslaptis":"errerr"}]
